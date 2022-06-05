@@ -30,7 +30,7 @@ export const Home: NextPage = () => {
           textAlign: "center",
         }}
       >
-        This is a simple Leaderboard for Metroid Dread.
+        This is a simple leaderboard for Metroid Dread.
       </p>
     </main>
   );
