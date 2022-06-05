@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "serve": "serve ./out",
+    "serve": "serve -l 3001 ./out",
     "lint": "next lint"
   },
   "lint-staged": {
