@@ -1,0 +1,39 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # Set a branch name to trigger deployment
+      - main # TODO: Rename master branch
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.1.0
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          npm install -g npm@8.12.1
+          npm install
+
+      - name: Generate data
+        run: |
+          npm run build
+          npm run export
+
+      - uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
