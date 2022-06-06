@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master # Set a branch name to trigger deployment
-      # - main # TODO: Rename master branch
+      - main # TODO: Rename master branch
   pull_request:
 
 jobs:
