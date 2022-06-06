@@ -21,7 +21,7 @@
   "author": "mdread-speedruns",
   "license": "ISC",
   "engines": {
-    "node": "18.1.0",
+    "node": "v18.1.0",
     "npm": "8.12.1"
   },
   "dependencies": {
